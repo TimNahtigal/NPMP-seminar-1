@@ -2,16 +2,7 @@ import math
 import random
 from qiskit import QuantumCircuit
 
-
 class QuantumCircuitGenerator:
-    """Generates a random quantum circuit using Qiskit with basic and complex gates.
-
-    The circuit is built layer by layer. In every layer each qubit gets exactly one gate,
-    and multi-qubit gates act on randomly chosen (not necessarily adjacent) qubits.
-    Gates in a layer never share a qubit, so qc.depth() equals `depth`
-    (a ccx or swap counts as one layer, as in Qiskit's depth()).
-    """
-
     def __init__(self, num_qubits: int, depth: int):
         self.num_qubits = num_qubits
         self.depth = depth
@@ -21,7 +12,6 @@ class QuantumCircuitGenerator:
         single_qubit_gates = ["h", "t", "s", "x", "rz"]
 
         for _ in range(self.depth):
-            # Qubits that have no gate yet in this layer, in random order
             free = list(range(self.num_qubits))
             random.shuffle(free)
             while free:
