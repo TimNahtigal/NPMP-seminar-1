@@ -3,7 +3,7 @@ from qiskit import QuantumCircuit, transpile, qasm2
 from qiskit.circuit.library import PermutationGate
 import pyzx as zx
 
-CLIFFORD_T_BASIS = ['cx', 'h', 's', 'sdg', 't', 'tdg', 'x', 'z']
+CLIFFORD_T_BASIS = ['cx', 'h', 's', 'sdg', 't', 'tdg']
 
 class QiskitOptimizer:
     def __init__(self, optimization_level: int = 3):
